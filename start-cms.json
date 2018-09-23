@@ -1,0 +1,52 @@
+{
+  "apps": [
+    {
+      "exec_mode": "fork_mode",
+      "script": "./app.js",
+      "name": "dilisap-0",
+      "node_args": [ "--max_old_space_size=512" ],
+      "env": {
+        "PORT": 1400,
+        "NODE_ENV": "production"
+      },
+      "error_file": "../logs/dilisap-0.err.log",
+      "out_file": "../logs/dilisap-0.out.log"
+    },
+    {
+      "exec_mode": "fork_mode",
+      "script": "./app.js",
+      "name": "dilisap-1",
+      "node_args": [ "--max_old_space_size=512" ],
+      "env": {
+        "PORT": 1401,
+        "NODE_ENV": "production"
+      },
+      "error_file": "../logs/dilisap-1.err.log",
+      "out_file": "../logs/dilisap-1.out.log"
+    }
+    {
+      "exec_mode": "fork_mode",
+      "script": "./app.js",
+      "name": "dilisap-2",
+      "node_args": [ "--max_old_space_size=512" ],
+      "env": {
+        "PORT": 1402,
+        "NODE_ENV": "production"
+      },
+      "error_file": "../logs/dilisap-2.err.log",
+      "out_file": "../logs/dilisap-2.out.log"
+    },
+    {
+      "exec_mode": "fork_mode",
+      "script": "./app.js",
+      "name": "dilisap-3",
+      "node_args": [ "--max_old_space_size=512" ],
+      "env": {
+        "PORT": 1403,
+        "NODE_ENV": "production"
+      },
+      "error_file": "../logs/dilisap-3.err.log",
+      "out_file": "../logs/dilisap-3.out.log"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "exec_mode": "fork_mode",
+      "script": "./app.js",
+      "name": "dilisap-0",
+      "node_args": [ "--max_old_space_size=640" ],
+      "env": {
+        "PORT": 1400,
+        "NODE_ENV": "developer"
+      },
+      "args": "--verbose",
+      "error_file": "../logs/dilisap-0.err.log",
+      "out_file": "../logs/dilisap-0.out.log"
+    }
+  ]
+}
