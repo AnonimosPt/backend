@@ -46,6 +46,16 @@ module.exports = (function(){
           unique: true,
           required: true
         },
+        salt: {
+          type: 'text'
+        },
+        token: {
+          model: 'token'
+        },
+        emailactive: {
+          type: 'boolean',
+          defaultsTo: false
+        },
         password:{
           type: 'string',
           required: true
