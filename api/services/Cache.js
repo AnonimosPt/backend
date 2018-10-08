@@ -15,7 +15,6 @@ module.exports = (function() {
       engine: 'redis',
       host: '127.0.0.1'
     });
-  // TODO[hender] Configurar múltiple cache
   return {
     set: setItem,
     get: getItem,

@@ -12,6 +12,10 @@ module.exports = {
       type: 'string',
       required: true
     },
+    referencia:{
+      type: 'string',
+      required: true
+    },
     titulo: {
       type: 'string',
       required: true
@@ -60,11 +64,15 @@ module.exports = {
       enum:[
         'factura',
         'recibo',
+        'cotizacion',
         'comprobante',
         'compra',
         'gasto'
       ],
       defaultsTo: 'factura'
+    },
+    descripcion:{
+      type: 'string'
     },
     cajero:{
       model: 'usuario'

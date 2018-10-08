@@ -43,7 +43,7 @@ module.exports = function(req, res, next) {
           err: ['The token is not valid']
         });
       }
-      Usuario
+      Usuarioblog
         .findOne({
           populate: '',
           where: {

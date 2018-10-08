@@ -112,7 +112,7 @@ module.exports = (function() {
         var domain = _.trim(email.split('@')[1]);
         sails.log.info('Mailjet:118\n', domain, blg.dominio)
         if (blg.dominio && domain === blg.dominio) {
-          return Usuario
+          return Usuarioblog
             .findOne({
               email: email
             })
@@ -167,7 +167,7 @@ module.exports = (function() {
               return Promise.reject((_.isEmpty(data.cc) || _.isEmpty(data.bcc) || _.isEmpty(data.destino)) ? 'bad "to" emails' : 'bad "from" email');
             })
             .then(function(data) {
-              return Usuario
+              return Usuarioblog
                 .findOne({
                   where: {
                     email: data.remitente
@@ -403,7 +403,6 @@ module.exports = (function() {
         params.deename = split[0];
       }
     }
-    // TODO[hender] Validar campos antes de enviar email
     var
       data = {
         remitente: params.deemail,
@@ -483,11 +482,10 @@ module.exports = (function() {
       para: para,
       cc: transformUser(cc),
       bcc: transformUser(bcc),
-      //headers: headers,
       content: content
     };
 
-    return Usuario
+    return Usuarioblog
       .find({
         populate: false,
         where: {
@@ -619,8 +617,8 @@ module.exports = (function() {
   }
 
   function getParseroute(usr, blg) {
-sails.log.info('\nUser\n', usr.email,'\n');
-sails.log.info('\nBlog\n', blg.dominio,'\n');
+    sails.log.info('\nUser\n', usr.email,'\n');
+    sails.log.info('\nBlog\n', blg.dominio,'\n');
     return mailjet
       .get('parseroute',{
         params: {

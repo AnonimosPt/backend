@@ -250,21 +250,11 @@ module.exports = (function() {
         }
       });
 
-      // This `_write` method is invoked each time a new file is received
-      // from the Readable stream (Upstream) which is pumping filestreams
-      // into this receiver.  (filename === `__newFile.filename`).
       receiver__._write = function onFile(__newFile, encoding, next) {
 
         //var startedAt = new Date();
 
         __newFile.on('error', function(err) {
-          //sails.log.error('ERROR ON file read stream in receiver (%s) ::', __newFile.filename, err);
-          // TODO: the upload has been cancelled, so we need to stop writing
-          // all buffered bytes, then call gc() to remove the parts of the file that WERE written.
-          // (caveat: may not need to actually call gc()-- need to see how this is implemented
-          // in the underlying knox-mpu module)
-          //
-          // Skipper core should gc() for us.
           if (_.isFunction(options.onError)) {
             options.onError(err);
           }
