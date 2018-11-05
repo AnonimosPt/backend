@@ -32,6 +32,10 @@ module.exports = {
       model: 'articulo',
       required: true
     },
+    articuloblog:{
+      model: 'articuloblog',
+      required: true
+    },
     galeria: {
       model: 'galeria'
     },

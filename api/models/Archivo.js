@@ -20,6 +20,18 @@ module.exports = {
       type: 'string',
       required: true
     },
+    url:{
+      type: 'string',
+      required: true
+    },
+    urlprint:{
+      type: 'string',
+      required: true
+    },
+    icon:{
+      type: 'string',
+      required: true
+    },
     estado: {
       type: 'string',
       enum:[
@@ -29,55 +41,30 @@ module.exports = {
       ],
       defaultsTo: 'activo',
     },
-    fd: {
-      type: 'string',
-      required: true,
-      unique: true
-    },
-    fdthumbnail: {
-      type: 'string',
-      required: true,
-      unique: true
-    },
     type: {
       type: 'string',
       required: true
     },
     size: {
-      type: 'integer',
-      required: true
+      type: 'json',
     },
     blog: {
       model: 'blog',
       required: true
     },
-    blogapi: {
-      model: 'blog'
-    },
     tipo: {
       type: 'string',
       enum: [
         'archivo',
-        'pago-recibido',
         'factura',
         'contrato',
         'documento'
       ],
       defaultsTo: 'archivo'
     },
-    archivopago: {
-      model: 'archivo'
-    },
-    pago: {
-      type: 'boolean',
-      defaultsTo: false,
-    },
     usuario: {
       model: 'usuarioblog',
       required: true
-    },
-    estado: {
-      model: 'estado'
     },
     galerias: {
       collection: 'archivogaleria',

@@ -8,13 +8,8 @@
 module.exports = {
 
   attributes: {
-    usuario: {
-      model: 'usuario',
-      required: true
-    },
     usuarioblog: {
-      model: 'usuarioblog',
-      required: true
+      model: 'usuarioblog'
     },
     archivo: {
       model: 'archivo',

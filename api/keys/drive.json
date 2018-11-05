@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "dilisap-214723",
+  "private_key_id": "3d5ee467f774c4c2ae662ce5751d0e0eede2cd5c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCGxwbP9hKY3wal\noHhWvsBOGvPn8lSEBrZMhIa59VLia0SDgTVGZ9m6vNHto73+Vks9qmGXrsadFeNj\nRIMQehpBFtdQ9GDXjbPfFpum9WmdCBLG2kxU8ZoNn4ee3sWveCHJuwA6sUT2ia1h\nrRbK4MbMBen/ZKnRoIU0HBcDBcbXRKZGS+veb2blsuQGK4NTCvotf3Nnn9AmufOb\ndZEs7fy9dEXvQinH87goe8KKwRVbJnEcRD6deutt90zRlQMkc+cvMMa6NmTae3u8\nHhmmnawC1557NXPvnVSetWgQuh6ZCo/sIHuTcU8xQYRayqx48xUFYDqYV1AuXP+2\nb0yIu5ulAgMBAAECggEAHFSZyf0fy6KV8xrYMOPH6KMhwg/eVCJVD6CL8WrwEUgb\nDsmKOVJ7IhWuyxUwStY42q2F9ix28242bhdotX31Jtl2ST4VXTocJTjLXz0XBjs8\nNzCL+w8OIu71wx9wzoGiGJWGZs/8fxZRq8aGk/7LyvczSMwQJlBnr5x3+dqtAXLO\nqX+8DRqtjLLkUEjQgPpx0CVNMCtX9vp6MlrJj5sO9bwICVDjoZ7YQ4qffRjfBkA3\n1O7JZyADIl4g84+OhmP3B5tRBW16EHI3tTWLZiHzJA+srIAaTEta6oHgsr4jt7Fi\na761u8y92hMhlS18u1oLBLlt2LPysxF5GrGlRTF5wQKBgQC59FXE5auEnqcs192k\nlyxpYHxotMBbtrExcnQ4ZUeRmQlf3C4wTkw4Cfa8N9DuMhZnSvJr1yw0GOKK7XAB\n/VitmRLRrEePD9saLiLnk7dogqdNhKhhhQRvuLunLcHaFbP/mD7f47dXhWefmTuo\nPmdT4pAGRjsJFhj62t3iYOeNGwKBgQC5i6xPw7cyt22Ek3MFgH9eWwC2c/pcT5R7\nKFFndAPOb2/+p0d4FzFG/N4qwH89efM7rFPvgXMYz9q3dArNAn0YEg86UXRYW36h\no7y+ymaJjwC64hhki8sCOZWkjfSUYtWh7GPPhg3un/CSPdv9OdNK0nOv+EiqRa3w\nacnoZKfGPwKBgQCOH1GCSGr71Go/Gsk655O5AlZzjFpMfmgVO73Z8IZvoECK9HSU\n1PLqDat3lU1pD/0RezWm+HC/bJmQxwJJcwFYxNqeSAb1L5AtBUAGMF8IUHtgAtjS\nl+CZJt69WnqDnPzSh+DeK2PQT5SwZWQ0JWXBtjKPqROr0SjMaYUWZSv0KwKBgGoV\nX3ljbvTCRw2LuDGnHCt4YFnwyW3J2hzoGlLJ0/tNX3z7azNQH050+Rj8YkNl3Bl8\nF6lSG9pNzMEiyaIZECiY+rffJmP2O9py4VE8K4/ugP5YkpW6D2HARryEpRfJwlcH\n7rER9hk+vK8ASyzmyNV4qcgsbm9b020nLtd95SbFAoGAZm40aVKuUsmss3uO/u0D\n2TSWCf5QNzx2oDv5B5RXBP5tIRQljeVlBvL11pmi8oGjlqMg1lf1lRG3KSDDXyhZ\nN76Psk9nvdOc0eRZbaWfM12YWLvbZT+ulPb72Lir6xkeulBtLwrnpu7qrjWH/3R4\nrGDfH/6nLNddI4Pkp9qNavo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dilisap@dilisap-214723.iam.gserviceaccount.com",
+  "client_id": "115240140547235867698",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dilisap%40dilisap-214723.iam.gserviceaccount.com"
+}

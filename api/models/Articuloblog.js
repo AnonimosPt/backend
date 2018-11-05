@@ -87,7 +87,8 @@ module.exports = {
       collection: 'usuarioblog'
     },
     galeria:{
-      collection: 'galeria'
+      collection: 'galeria',
+      via: 'articuloblog'
     },
     foto:{
       type: 'string',

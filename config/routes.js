@@ -33,9 +33,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   // '/': 'IndexController.prerender',
-  // /*'/': {
-  //   view: 'homepage'
-  // },*/
+  '/': {
+    view: 'homepage'
+  }
   //
   // 'POST /usuario/identify': 'UsuarioController.identify',
   // //'GET /archivo/download/:blog/list': 'ArchivoController.list',

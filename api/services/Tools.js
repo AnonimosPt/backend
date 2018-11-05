@@ -6,11 +6,52 @@ module.exports = (function() {
   var Cache = Cache || require("sailsjs-cacheman").sailsCacheman('tools');
   return {
     getSlug: slug,
+    tokenauth: tokenauth,
     destroyRels: destroyRels,
     getCollectionCache: getCollectionCache,
     deleteCollectionCache: deleteCollectionCache
   };
+  function tokenauth(data) {
+    // upload file in specific folder
+    /***** import primaries materials in order to build the Api code *****/
+    // import Google api library
+    var {
+      google
+    } = require("googleapis");
+    // import the Google drive module in google library
+    var drive = google.drive("v3");
+    // import our private key
+    var key = require("../keys/drive.json");
 
+    // import path ° directories calls °
+    var path = require("path");
+    // import fs ° handle data in the file system °
+    var
+      fs = require("fs"),
+      promises = []
+    ;
+
+
+    /***** make the request to retrieve an authorization allowing to works
+          with the Google drive web service *****/
+    // retrieve a JWT
+    var jwToken = new google.auth.JWT(
+      key.client_email,
+      null,
+      key.private_key, ["https://www.googleapis.com/auth/drive"],
+      null
+    );
+
+    jwToken.authorize((authErr) => {
+      if (authErr) {
+        console.log("error : " + authErr);
+        return false;
+      } else {
+        console.log("Authorization accorded");
+        return jwToken;
+      }
+    });
+  }
   function deleteCollectionCache(name) {
     return new Promise(function(resolve, reject) {
       if (getCollectionCache(name)) {
