@@ -133,7 +133,7 @@ module.exports = {
               if (jwToken) {
                 var
                   folderId = "0B_4rhD_gCkABRUpWS20xQVdBU00",
-                  name = new Date()+' '+item.filename
+                  name = new Date()+' '+item.filename+params.opciono
                 ;
                 var fileMetadata = {
                   'name': name,
@@ -207,23 +207,43 @@ module.exports = {
                 .then(function(archivo){
                   // sails.log.info(204, archivo);
                   if (archivo.id) {
+                    var
+                      bs = {}
+                    ;
+                    if (params.articuloblog) {
+                      bs.articuloblog = params.articuloblog;
+                    }
+                    if (params.usuario) {
+                      bs={
+                        usuario: params.usuario
+                      }
+                      ;
+                    }
                     Galeria
-                      .find({
-                        // articulo: params.articulo,
-                        articuloblog: params.articuloblog
-                      })
+                      .find(bs)
                       .then(function(galeria){
                         // sails.log.info(212, galeria);
                         galeria = galeria[0];
                         if (!galeria) {
                           // sails.log.info(218, galeria);
                           var
+                            query = {}
+                          ;
+                          if (params.articuloblog) {
                             query = {
                               titulo: params.articulo+ new Date(),
                               articulo: params.articulo,
                               articuloblog: params.articuloblog
                             }
                             ;
+                          }
+                          if (params.usuario) {
+                            query = {
+                              titulo: params.usuarioblog+ new Date(),
+                              usuario: params.usuario
+                            }
+                            ;
+                          }
                             query.slug = _.kebabCase(query.titulo);
                             // sails.log.info(218, query);
                             Galeria
@@ -243,7 +263,7 @@ module.exports = {
                             data = {
                               archivo: archivo.id,
                               galeria: galeria.id,
-                              usuarioblog: params.usuario
+                              usuario: params.usuario
                             }
                           ;
                           // sails.log.info(247, data);

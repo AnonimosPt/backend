@@ -62,6 +62,15 @@ module.exports = {
       ],
       defaultsTo: 'archivo'
     },
+    opcion: {
+      type: 'string',
+      enum: [
+        'perfil',
+        'logo',
+        'galeria'
+      ],
+      defaultsTo: 'logo'
+    },
     usuario: {
       model: 'usuarioblog',
       required: true

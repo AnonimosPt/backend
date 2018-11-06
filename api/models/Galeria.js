@@ -29,12 +29,13 @@ module.exports = {
       defaultsTo: 'activo',
     },
     articulo: {
-      model: 'articulo',
-      required: true
+      model: 'articulo'
     },
     articuloblog:{
-      model: 'articuloblog',
-      required: true
+      model: 'articuloblog'
+    },
+    usuario: {
+      model: 'usuarioblog'
     },
     galeria: {
       model: 'galeria'

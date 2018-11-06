@@ -29,6 +29,10 @@ module.exports = (function(){
         type: 'string',
         required: true
       },
+      galeria:{
+        collection: 'galeria',
+        via: 'usuario'
+      },
       estado: {
         type: 'string',
         enum:[
