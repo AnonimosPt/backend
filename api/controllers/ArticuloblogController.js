@@ -18,19 +18,23 @@ module.exports = {
         data = {
           producto: {
             cantidad: 0,
-            total: 0
+            total: 0,
+            full: 0
           },
           materiaprima: {
             cantidad: 0,
-            total: 0
+            total: 0,
+            full: 0
           },
           materiaprocesada: {
             cantidad: 0,
-            total: 0
+            total: 0,
+            full: 0
           },
           servicio: {
             cantidad: 0,
-            total: 0
+            total: 0,
+            full: 0
           }
         }
       ;
@@ -76,6 +80,7 @@ module.exports = {
               }
             })
             ;
+            data.producto.full = rta.length+1;
             return data;
           })
           .then(function(reporte){
@@ -99,6 +104,7 @@ module.exports = {
                 }
               })
               ;
+              data.materiaprima.full = rta.length+1;
               return data;
             });
           })
@@ -123,6 +129,7 @@ module.exports = {
                 }
               })
               ;
+              data.materiaprocesada.full = rta.length+1;
               return data;
             });
           })
@@ -147,6 +154,7 @@ module.exports = {
                 }
               })
               ;
+              data.servicio.full = rta.length+1;
               return data;
             });
           })

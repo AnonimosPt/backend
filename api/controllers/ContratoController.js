@@ -4,8 +4,13 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
-
 module.exports = {
+  print: function(req, res){
+    var
+      print = require('print-js')
+    ;
+    console.log("helo");
+  },
   reportes: function(req, res){
     var
       params = req.allParams()
@@ -32,10 +37,10 @@ module.exports = {
             cantidad: 0,
             total: 0
           },
-          gasto:{
-            cantidad: 0,
-            total: 0
-          }
+          // gasto:{
+          //   cantidad: 0,
+          //   total: 0
+          // }
         }
         ;
         return Blog
@@ -76,6 +81,7 @@ module.exports = {
                 }
               })
               ;
+              data.factura.cantidad = rta.length+1;
               return data;
             })
             .then(function(reporte){
@@ -95,6 +101,7 @@ module.exports = {
                   }
                 })
                 ;
+                data.recibo.cantidad = rta.length+1;
                 return data;
               })
               ;
@@ -116,6 +123,7 @@ module.exports = {
                   }
                 })
                 ;
+                data.comprobante.cantidad = rta.length+1;
                 return data;
               })
               ;
@@ -137,30 +145,32 @@ module.exports = {
                   }
                 })
                 ;
+                data.compra.cantidad = rta.length+1;
                 return data;
               })
               ;
             })
             .then(function(reporte){
-              return Contrato
-              .find({
-                limit: -1,
-                where:{
-                  tipo: 'gasto',
-                  blog: blog.id,
-                  estado: 'activo'
-                }
-              })
-              .then(function(rta){
-                _.forEach(rta, function(item, val){
-                  if (item.valortotal) {
-                    data.gasto.total+= item.valortotal;
-                  }
-                })
-                ;
-                return data;
-              })
-              ;
+              return reporte
+              // return Contrato
+              // .find({
+              //   limit: -1,
+              //   where:{
+              //     tipo: 'gasto',
+              //     blog: blog.id,
+              //     estado: 'activo'
+              //   }
+              // })
+              // .then(function(rta){
+              //   _.forEach(rta, function(item, val){
+              //     if (item.valortotal) {
+              //       data.gasto.total+= item.valortotal;
+              //     }
+              //   })
+              //   ;
+              //   return data;
+              // })
+              // ;
             })
             ;
           })

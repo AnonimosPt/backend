@@ -34,8 +34,14 @@ module.exports = {
     articuloblog:{
       model: 'articuloblog'
     },
+    blog:{
+      model: 'blog'
+    },
     usuario: {
       model: 'usuarioblog'
+    },
+    ingrediente: {
+      model: 'actividad'
     },
     galeria: {
       model: 'galeria'

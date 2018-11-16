@@ -29,6 +29,15 @@ module.exports = (function(){
         type: 'string',
         required: true
       },
+      sexo:{
+        type: 'string',
+        enum:[
+          'masculino',
+          'femenino',
+          'sinespecificar',
+        ],
+        defaultsTo: 'sinespecificar',
+      },
       galeria:{
         collection: 'galeria',
         via: 'usuario'

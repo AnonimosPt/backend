@@ -13,6 +13,9 @@ module.exports = {
       type: 'string',
       required: true
     },
+    iniciales:{
+      type: 'string'
+    },
     slug:{
       type: 'string',
       required: true
@@ -29,6 +32,10 @@ module.exports = {
     url:{
       type: 'string',
       required: true
+    },
+    galeria:{
+      collection: 'galeria',
+      via: 'blog'
     },
     host:{
       type: 'string',

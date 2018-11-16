@@ -28,6 +28,10 @@ module.exports = {
       collection: 'actividadarticulo',
       via: 'actividad'
     },
+    galeria:{
+      collection: 'galeria',
+      via: 'ingrediente'
+    },
     blog:{
       model: 'blog',
       required: true

@@ -49,8 +49,7 @@ module.exports = {
       type: 'json',
     },
     blog: {
-      model: 'blog',
-      required: true
+      model: 'blog'
     },
     tipo: {
       type: 'string',
