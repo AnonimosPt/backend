@@ -10,6 +10,8 @@ module.exports = {
       print = require('print-js')
     ;
     console.log("helo");
+    print({printable: [{name: 'jose',email: 'andres', phone: '123'}], properties: ['name','email','phone'], type: 'json'});
+    // res.ok();
   },
   reportes: function(req, res){
     var

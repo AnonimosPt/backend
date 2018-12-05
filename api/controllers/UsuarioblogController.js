@@ -296,5 +296,114 @@
          return res.json(401, err);
        })
      ;
+   },
+   reportes: function (req, res) {
+     var
+        params = req.allParams()
+     ;
+     if (params.where) {
+       params.blog = params.where.blog;
+     }
+     if (params.blog) {
+       var
+        data = {
+          usuario:{
+            total: 0
+          },
+          masculino:{
+            total: 0
+          },
+          femenino:{
+            total: 0
+          }
+        }
+        ;
+        return Blog
+          .findOne({
+            where:{
+              or:[
+                {
+                  id: params.blog
+                },
+                {
+                  host: params.blog
+                },
+                {
+                  slug: params.blog
+                }
+              ]
+            }
+          })
+          .then(function(blog){
+            if (blog && blog.id) {
+              return blog;
+            }
+          })
+          .then(function(blog){
+            sails.log.info(399, blog);
+            return Usuarioblog
+            .find({
+              limit: -1,
+              where:{
+                usuario: {
+                  '!': null
+                },
+                blog: blog.id,
+                estado: 'activo'
+              }
+            })
+            .then(function(rta){
+              data.usuario.total = rta.length+1;
+              return data;
+            })
+            .then(function(reporte){
+              return Usuarioblog
+              .find({
+                limit: -1,
+                where:{
+                  usuario: {
+                    '!': null
+                  },
+                  sexo: 'masculino',
+                  blog: blog.id,
+                  estado: 'activo'
+                }
+              })
+              .then(function(rta){
+                data.masculino.total = rta.length+1;
+                return data;
+              })
+              ;
+            })
+            .then(function(reporte){
+              return Usuarioblog
+              .find({
+                limit: -1,
+                where:{
+                  usuario: {
+                    '!': null
+                  },
+                  sexo: 'femenino',
+                  blog: blog.id,
+                  estado: 'activo'
+                }
+              })
+              .then(function(rta){
+                data.femenino.total = rta.length+1;
+                return data;
+              })
+              ;
+            })
+            ;
+          })
+          .then(function(reporte){
+            sails.log.info(399, reporte);
+            res.ok(reporte);
+          }, function(err){
+            res.negotiate(err);
+          })
+          ;
+     }
+
    }
  };

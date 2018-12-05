@@ -65,6 +65,10 @@ module.exports = {
     departamento:{
       model: 'departamento'
     },
+    api:{
+      type: 'boolean',
+      default: false
+    },
     ofrece: {
       type: 'string',
       enum: [
