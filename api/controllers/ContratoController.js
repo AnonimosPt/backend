@@ -5,20 +5,14 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 module.exports = {
-  print: function(req, res){
-    var
-      print = require('print-js')
-    ;
-    console.log("helo");
-    print({printable: [{name: 'jose',email: 'andres', phone: '123'}], properties: ['name','email','phone'], type: 'json'});
-    // res.ok();
-  },
   reportes: function(req, res){
     var
       params = req.allParams()
     ;
     if (params.where) {
       params.blog = params.where.blog;
+      params.fechainit = params.where.fechainit;
+      params.fechafin = params.where.fechafin;
     }
     if (params.blog) {
       var
@@ -43,8 +37,17 @@ module.exports = {
           //   cantidad: 0,
           //   total: 0
           // }
-        }
+        },
+        fechas = null
         ;
+        if (params.fechainit || params.fechafin ) {
+          fechas =  {
+            '>=': new Date(params.fechainit),
+            '<=': new Date(params.fechafin)
+          }
+          ;
+          // sails.log.info(49, fechas, params.fechainit);
+        }
         return Blog
           .findOne({
             where:{
@@ -67,15 +70,21 @@ module.exports = {
             }
           })
           .then(function(blog){
-            return Contrato
-            .find({
-              limit: -1,
-              where:{
-                tipo: 'factura',
-                blog: blog.id,
-                estado: 'activo'
+            var
+              query = {
+                limit: -1,
+                where:{
+                  tipo: 'factura',
+                  blog: blog.id,
+                  estado: 'activo'
+                }
               }
-            })
+            ;
+            if (fechas) {
+              query.where.createdAt = fechas;
+            }
+            return Contrato
+            .find(query)
             .then(function(rta){
               _.forEach(rta, function(item, val){
                 if (item.valortotal) {
@@ -87,15 +96,21 @@ module.exports = {
               return data;
             })
             .then(function(reporte){
-              return Contrato
-              .find({
-                limit: -1,
-                where:{
-                  tipo: 'recibo',
-                  blog: blog.id,
-                  estado: 'activo'
+              var
+                query = {
+                  limit: -1,
+                  where:{
+                    tipo: 'recibo',
+                    blog: blog.id,
+                    estado: 'activo'
+                  }
                 }
-              })
+              ;
+              if (fechas) {
+                query.where.createdAt = fechas;
+              }
+              return Contrato
+              .find(query)
               .then(function(rta){
                 _.forEach(rta, function(item, val){
                   if (item.valortotal) {
@@ -109,15 +124,21 @@ module.exports = {
               ;
             })
             .then(function(reporte){
-              return Contrato
-              .find({
-                limit: -1,
-                where:{
-                  tipo: 'comprobante',
-                  blog: blog.id,
-                  estado: 'activo'
+              var
+                query = {
+                  limit: -1,
+                  where:{
+                    tipo: 'comprobante',
+                    blog: blog.id,
+                    estado: 'activo'
+                  }
                 }
-              })
+              ;
+              if (fechas) {
+                query.where.createdAt = fechas;
+              }
+              return Contrato
+              .find(query)
               .then(function(rta){
                 _.forEach(rta, function(item, val){
                   if (item.valortotal) {
@@ -131,15 +152,21 @@ module.exports = {
               ;
             })
             .then(function(reporte){
-              return Contrato
-              .find({
-                limit: -1,
-                where:{
-                  tipo: 'compra',
-                  blog: blog.id,
-                  estado: 'activo'
+              var
+                query = {
+                  limit: -1,
+                  where:{
+                    tipo: 'compra',
+                    blog: blog.id,
+                    estado: 'activo'
+                  }
                 }
-              })
+              ;
+              if (fechas) {
+                query.where.createdAt = fechas;
+              }
+              return Contrato
+              .find(query)
               .then(function(rta){
                 _.forEach(rta, function(item, val){
                   if (item.valortotal) {

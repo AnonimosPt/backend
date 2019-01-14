@@ -40,8 +40,17 @@ module.exports = {
           cantidad: 0,
           total: 0
         }
-      }
+      },
+      fechas = null
     ;
+    if (params.fechainit || params.fechafin ) {
+      fechas =  {
+        '>=': new Date(params.fechainit),
+        '<=': new Date(params.fechafin)
+      }
+      ;
+      // sails.log.info(49, fechas, params.fechainit);
+    }
     return Blog
       .findOne({
         where:{
@@ -64,11 +73,17 @@ module.exports = {
         }
       })
       .then(function(blog){
+        var
+          query = {
+            rol: '5b8c59812093fe35a832e9ee', //usuario
+            estado: 'activo'
+          }
+        ;
+        if (fechas) {
+          query.where.createdAt = fechas;
+        }
         return Usuariorol
-        .find({
-          rol: '5b8c59812093fe35a832e9ee', //usuario
-          estado: 'activo'
-        })
+        .find(query)
         .then(function(user){
           var suma = 0;
           _.forEach(user, function(item, val){
@@ -82,11 +97,17 @@ module.exports = {
           return data;
         })
         .then(function(reporte){
+          var
+            query = {
+              rol: '5b8c71d58e952829481aeaaf', //cliente,
+              estado: 'activo'
+            }
+          ;
+          if (fechas) {
+            query.where.createdAt = fechas;
+          }
           return Usuariorol
-          .find({
-            rol: '5b8c71d58e952829481aeaaf', //cliente,
-            estado: 'activo'
-          })
+          .find(query)
           .then(function(user){
             var suma = 0;
             _.forEach(user, function(item, val){
@@ -102,11 +123,17 @@ module.exports = {
           return data;
         })
         .then(function(reporte){
+          var
+            query = {
+              rol: '5b8c71e28e952829481aeab0', //vendedor,
+              estado: 'activo'
+            }
+          ;
+          if (fechas) {
+            query.where.createdAt = fechas;
+          }
           return Usuariorol
-          .find({
-            rol: '5b8c71e28e952829481aeab0', //vendedor,
-            estado: 'activo'
-          })
+          .find(query)
           .then(function(user){
             var suma = 0;
             _.forEach(user, function(item, val){
@@ -123,11 +150,17 @@ module.exports = {
           return data;
         })
         .then(function(reporte){
+          var
+            query = {
+              rol: '5b8c71e28e952829481aeab0', //vendedor,
+              estado: 'activo'
+            }
+          ;
+          if (fechas) {
+            query.where.createdAt = fechas;
+          }
           return Usuariorol
-          .find({
-            rol: '5b8c71e28e952829481aeab0', //vendedor,
-            estado: 'activo'
-          })
+          .find(query)
           .then(function(user){
             var suma = 0;
             _.forEach(user, function(item, val){
@@ -144,11 +177,17 @@ module.exports = {
           return data;
         })
         .then(function(reporte){
+          var
+            query = {
+              rol: '5b933c086f141a328c72bfc8', //empleado,
+              estado: 'activo'
+            }
+          ;
+          if (fechas) {
+            query.where.createdAt = fechas;
+          }
           return Usuariorol
-          .find({
-            rol: '5b933c086f141a328c72bfc8', //empleado,
-            estado: 'activo'
-          })
+          .find(query)
           .then(function(user){
             var suma = 0;
             _.forEach(user, function(item, val){
@@ -165,11 +204,17 @@ module.exports = {
           return data;
         })
         .then(function(reporte){
+          var
+            query = {
+              rol: '5b9a8e08382e511f4834686a', //prospecto,
+              estado: 'activo'
+            }
+          ;
+          if (fechas) {
+            query.where.createdAt = fechas;
+          }
           return Usuariorol
-          .find({
-            rol: '5b9a8e08382e511f4834686a', //prospecto,
-            estado: 'activo'
-          })
+          .find(query)
           .then(function(user){
             var suma = 0;
             _.forEach(user, function(item, val){
@@ -186,11 +231,17 @@ module.exports = {
           return data;
         })
         .then(function(reporte){
+          var
+            query = {
+              rol: '5b9b24e3382e511f48346880', //proveedor,
+              estado: 'activo'
+            }
+          ;
+          if (fechas) {
+            query.where.createdAt = fechas;
+          }
           return Usuariorol
-          .find({
-            rol: '5b9b24e3382e511f48346880', //proveedor,
-            estado: 'activo'
-          })
+          .find(query)
           .then(function(user){
             var suma = 0;
             _.forEach(user, function(item, val){
@@ -210,7 +261,7 @@ module.exports = {
         return data;
       })
       .then(function(reporte){
-        console.log(reporte);
+        // console.log(reporte);
         res.ok(reporte);
       }, function(err){
         res.negotiate(err);

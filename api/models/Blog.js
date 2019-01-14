@@ -75,7 +75,7 @@ module.exports = {
         'productos',
         'servicios',
       ],
-      defaultsTo: 'producto'
+      defaultsTo: 'productos'
     },
     tipo: {
       type: 'string',

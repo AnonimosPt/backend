@@ -10,8 +10,11 @@ module.exports = {
       var
         params = req.allParams()
       ;
+      sails.log.info(13, params);
       if (params.where) {
         params.blog = params.where.blog;
+        params.fechainit = params.where.fechainit;
+        params.fechafin = params.where.fechafin;
       }
     if (params.blog) {
       var
@@ -36,8 +39,31 @@ module.exports = {
             total: 0,
             full: 0
           }
-        }
+        },
+        fechas = null
       ;
+      if (params.fechainit || params.fechafin ) {
+        fechas =  {
+          '>=': new Date(params.fechainit),
+          '<=': new Date(params.fechafin)
+        }
+        ;
+        // sails.log.info(49, fechas, params.fechainit);
+      }
+      // if (params.fechafin) {
+      //   fechas = {
+      //     '>=': new Date(),
+      //     '<=': new Date(params.fechafin || null)
+      //   }
+      //   ;
+      // }
+      // if (params.fechainit && params.fechafin) {
+      //   fechas = {
+      //     '>=': new Date(params.fechainit),
+      //     '<=': new Date(params.fechafin)
+      //   }
+      //   ;
+      // }
       return Blog
         .findOne({
           where:{
@@ -60,15 +86,23 @@ module.exports = {
           }
         })
         .then(function(blog){
-          return Articuloblog
-          .find({
-            limit: -1,
-            where:{
-              tipo: 'producto',
-              blog: blog.id,
-              estado: 'activo'
+          var
+            query = {
+              limit: -1,
+              where:{
+                tipo: 'producto',
+                blog: blog.id,
+                estado: 'activo',
+                // createdAt: fechas
+              }
             }
-          })
+          ;
+          if (fechas) {
+            query.where.createdAt = fechas;
+          }
+          // sails.log.info(96, query, fechas);
+          return Articuloblog
+          .find(query)
           .then(function(rta){
             // console.log(rta);
             _.forEach(rta, function(item, val){
@@ -84,15 +118,21 @@ module.exports = {
             return data;
           })
           .then(function(reporte){
-            return Articuloblog
-            .find({
-              limit: -1,
-              where:{
-                tipo: 'materiaprima',
-                blog: blog.id,
-                estado: 'activo'
+            var
+              query = {
+                limit: -1,
+                where:{
+                  tipo: 'materiaprima',
+                  blog: blog.id,
+                  estado: 'activo'
+                }
               }
-            })
+            ;
+            if (fechas) {
+              query.where.createdAt = fechas;
+            }
+            return Articuloblog
+            .find(query)
             .then(function(rta){
               // console.log(rta);
               _.forEach(rta, function(item, val){
@@ -109,15 +149,22 @@ module.exports = {
             });
           })
           .then(function(reporte){
-            return Articuloblog
-            .find({
-              limit: -1,
-              where:{
-                tipo: 'materiaprocesada',
-                blog: blog.id,
-                estado: 'activo'
+            var
+              query = {
+                limit: -1,
+                where:{
+                  tipo: 'materiaprocesada',
+                  blog: blog.id,
+                  estado: 'activo',
+                  createdAt: fechas
+                }
               }
-            })
+            ;
+            if (fechas) {
+              query.where.createdAt = fechas;
+            }
+            return Articuloblog
+            .find(query)
             .then(function(rta){
               // console.log(rta);
               _.forEach(rta, function(item, val){
@@ -134,15 +181,22 @@ module.exports = {
             });
           })
           .then(function(reporte){
-            return Articuloblog
-            .find({
-              limit: -1,
-              where:{
-                tipo: 'servicio',
-                blog: blog.id,
-                estado: 'activo'
+            var
+              query = {
+                limit: -1,
+                where:{
+                  tipo: 'servicio',
+                  blog: blog.id,
+                  estado: 'activo',
+                  createdAt: fechas
+                }
               }
-            })
+            ;
+            if (fechas) {
+              query.where.createdAt = fechas;
+            }
+            return Articuloblog
+            .find(query)
             .then(function(rta){
               // console.log(rta);
               _.forEach(rta, function(item, val){

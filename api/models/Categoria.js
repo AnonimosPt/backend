@@ -21,9 +21,10 @@ module.exports = {
       enum:[
         'menu',
         'cargo',
+        'marca',
         'producto',
         'funciones',
-        'materiaprima'
+        'materiaprima',
       ],
       defaultsTo: 'producto'
     },

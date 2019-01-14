@@ -20,6 +20,14 @@ module.exports = {
       type: 'float',
       defaultsTo: 0
     },
+    total: {
+      type: 'float',
+      defaultsTo: 0
+    },
+    totalbruto: {
+      type: 'float',
+      defaultsTo: 0
+    },
     vueltos: {
       type: 'float',
       defaultsTo: 0

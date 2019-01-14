@@ -36,6 +36,14 @@ module.exports = {
       ],
       defaultsTo: 'activo',
     },
+    estadocontrato:{
+      type: 'string',
+      enum:[
+        'pagado',
+        'guardada'
+      ],
+      defaultsTo: 'guardada',
+    },
     blog:{
       model: 'blog',
       required: true

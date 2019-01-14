@@ -56,6 +56,9 @@ module.exports = {
       model: 'articuloblog',
       required: true
     },
+    costo:{
+      type: 'string'
+    },
     blog:{
       model: 'blog',
       required: true

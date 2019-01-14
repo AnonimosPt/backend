@@ -20,6 +20,13 @@ module.exports = {
       model: 'blog',
       required: true
     },
+    marca:{
+      model: 'categoria'
+    },
+    categoria:{
+      collection: 'categoriaarticulo',
+      via: 'articuloblog'
+    },
     creador:{
       model: 'usuarioblog',
       required: true
