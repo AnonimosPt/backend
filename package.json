@@ -45,6 +45,7 @@
     "socket.io-redis": "1.0.0",
     "waterline": "^0.13.6"
   },
+  
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js"
