@@ -5,6 +5,7 @@
   "description": "dilisap application",
   "keywords": [],
   "dependencies": {
+    "bluebird": "^3.5.0",
     "cacheman": "^2.2.1",
     "cacheman-redis": "^1.1.2",
     "ejs": "2.3.4",
